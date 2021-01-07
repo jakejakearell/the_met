@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require './lib/patron.rb'
 require './lib/exhibit.rb'
 require './lib/museum.rb'
@@ -115,7 +116,8 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron2)
     @dmns.admit(@patron3)
     @dmns.draw_lottery_winner(@dead_sea_scrolls)
-
+    # winner = mock
+    # winner.expects(:draw_lottery_winner).returns("Johnny")
     assert_equal "Johnny has won the Dead Sea Scrolls lottery", @dmns.announce_lottery_winner(@dead_sea_scrolls)
 
 
